@@ -9,7 +9,8 @@ BOOKR is a hybrid mobile app engineered specifically for university founders, ca
 
 All product planning, architectural decisions, and discussion threads are tracked in the documentation below:
 
-- **[Project Blueprint (Product Specifications)](PROJECT_BLUEPRINT.md)**: Target personas, the 4 MVP feature pillars, and product requirements.
+- **[Project Blueprint (Product Specifications)](PROJECT_BLUEPRINT.md)**: Target personas, the 3-tab architecture, and product requirements.
+- **[Campus Entrepreneur Research & Failure Modes](RESEARCH_CAMPUS_ENTREPRENEURS.md)**: Deep dive into the real problems (Minna campus retail, "eating capital", and hostel credit).
 - **[Research & Competitive Benchmarks](RESEARCH_BENCHMARKS.md)**: Insights from `Not-Venda`, open-source repos, and benchmark apps to test on mobile.
 - **[Discussion & Decisions Log](DISCUSSION.md)**: Active brainstorming topics, design decisions, and questions under review.
 
