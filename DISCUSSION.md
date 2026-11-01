@@ -7,7 +7,17 @@
 ## Current Status
 - **Phase:** Ideation, Requirements Definition & User Journey Design
 - **Code Status:** No code written yet (strictly planning).
-- **Core Document:** [PROJECT_BLUEPRINT.md](file:///d:/dev/MyBookr/PROJECT_BLUEPRINT.md)
+- **Core Documents:** [PROJECT_BLUEPRINT.md](file:///d:/dev/MyBookr/PROJECT_BLUEPRINT.md) | [RESEARCH_BENCHMARKS.md](file:///d:/dev/MyBookr/RESEARCH_BENCHMARKS.md)
+
+---
+
+## Round 2 Decisions & Architectural Invariants (Adopted from `Not-Venda`)
+
+Following our review of `SamuelAbolarinwa/Not-Venda`:
+1. **Integer Money Representation:** Currency is represented in its smallest integer unit (e.g. kobo or cents) via `BIGINT` to prevent floating-point rounding errors.
+2. **Offline-First Outbox Pattern:** Invoices and expenses are written to a durable local queue (SQLite / AsyncStorage / IndexedDB) first, so the student can work completely offline in campus classrooms or basements.
+3. **Immutable Append-Only Ledger:** Financial entries are never destructively overwritten or deleted. Reversals or personal/business reclassifications create transparent audit trails.
+4. **WhatsApp & P2P Sharing Priority:** In emerging markets and campus settings, WhatsApp is the default communication rail. Invoices must be shareable to WhatsApp with 1 tap, including clickable payment deep links (Bank Transfer, Paystack/Flutterwave, Venmo, CashApp).
 
 ---
 
