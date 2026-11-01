@@ -1,99 +1,107 @@
-# MyBookr — Product Blueprint & Discussion Notes
-*A Finance & Bookkeeping App Tailored for Student Entrepreneurs*
+# BOOKR — Product Blueprint & Specifications
+*The Ultra-Lightweight Financial Ledger for Student Entrepreneurs*
 
 ---
 
-## 1. Executive Summary & Vision
+## 1. Executive Summary & Product Manifesto
 
-**What is MyBookr?**
-MyBookr is a hybrid, mobile-first financial companion built specifically for university and college student founders, freelancers, and side-hustlers. 
+**The Problem with Existing Apps (Bumpa, QuickBooks, etc.):**
+Existing commercial apps suffer from **feature bloat** — they try to be an all-in-one e-commerce website builder, CRM, multi-channel dispatch, marketing machine, and complex accounting engine. For a student running a side hustle or campus micro-venture, this is overwhelming friction.
 
-Traditional accounting tools (QuickBooks, Xero, FreshBooks) are built for registered businesses with dedicated corporate bank accounts, complex charts of accounts, and hefty monthly subscription fees ($30–$70/mo). Most student entrepreneurs:
-- Run their hustle out of a single personal checking account.
-- Rely on peer-to-peer payments (Venmo, Cash App, Zelle, Stripe, Apple Pay, cash).
-- Are not formal corporations yet (no LLC, no EIN, no separate corporate card).
-- Struggle with knowing whether they are genuinely profitable or accidentally spending their tuition/grocery money on business expenses.
-- Need clean numbers to pitch for campus incubator micro-grants and university competitions.
+**The BOOKR Philosophy:**
+> *"If you want an online e-commerce website, go use Bumpa. BOOKR exists for one specific job: replacing the messy paper notebook with an effortless, 3-tab financial tracker on your phone."*
 
-MyBookr bridges this gap with zero accounting jargon, friction-free tracking, fast mobile invoicing, and instant pitch-ready exports.
+BOOKR is 100% focused on recording money in, money out, and stock — fast, offline, and without friction.
 
 ---
 
-## 2. Target User Personas
+## 2. The "Rule of 3 Tabs" Architecture
 
-| Persona | Example Hustle | Primary Pain Point | What MyBookr Solves |
-|---|---|---|---|
-| **The Campus Freelancer** | Photographer, videographer, tutor, resume reviewer, graphic designer | Getting paid late, sending messy text messages instead of professional invoices | Instant mobile invoice with QR codes for Venmo/CashApp/Zelle/Stripe |
-| **The Physical Hustler** | Vintage clothing reseller, campus baker, custom merch printer | Mixing inventory costs with personal grocery spending | "Tinder-swipe" style expense sorter (Personal vs. Hustle) |
-| **The Tech / SaaS Founder** | Mobile app developer, AI tool builder, campus marketplace | Tracking recurring subscriptions (AWS, OpenAI API, domains) and calculating runway | Simple Runway & Burn Rate tracker |
-| **The Grant & Pitch Contender** | Student applying to university venture funds, incubator demo days | Judges asking: "What are your unit economics and monthly burn?" | 1-Click Pitch Deck Financial Summary Export |
+When the student opens BOOKR, there is zero clutter. The app consists of **3 clean tabs**:
 
----
+```
+┌────────────────────────────────────────────────────────┐
+│                        BOOKR                           │
+│  [ Safe-to-Spend: ₦18,500 ]  [ Hustle Cash: ₦42,000 ]  │
+├───────────────────┬───────────────────┬────────────────┤
+│    📉 EXPENSES     │     📈 SALES      │   📦 INVENTORY  │
+│  (Money Going Out)│ (Money Coming In) │  (What You Have)│
+└───────────────────┴───────────────────┴────────────────┘
+```
 
-## 3. Core MVP Feature Scope
+1. **📉 Expenses Tab (Money Going Out):**
+   - Clean list of outgoing payments.
+   - Quick filters: Personal vs. Hustle (or category tags: Materials, Transport, Food, Tools).
+   - Large, immediate `+ Add Expense` button.
 
-### Feature 1: Personal vs. Hustle Cash Flow Separation
-* **The Problem:** Students co-mingle funds. A $1,500 bank balance looks healthy until they realize $800 is committed to inventory/clients and $600 is rent.
-* **The Experience:**
-  - **"Safe-to-Spend" Dial:** At the top of the dashboard, shows two clear numbers:
-    1. *Personal Safe-to-Spend* (groceries, leisure, rent).
-    2. *Hustle Working Capital* (retained earnings for the business).
-  - **Quick-Tag Logging:** Fast 3-second manual transaction logger or bank sync (optional future phase), with a swipe interface:
-    - Swipe Left = Personal.
-    - Swipe Right = Hustle.
-    - Tap Split = E.g., a $60 dinner that was 50% client meeting, 50% personal food.
+2. **📈 Sales Tab (Money Coming In):**
+   - Clean list of customer payments, gigs, and sales.
+   - Indicates payment status: Received vs. Unpaid/Pending.
+   - Fast `+ Record Sale` button.
 
-### Feature 2: 60-Second Mobile Invoicing & Payment Links
-* **The Problem:** Students lose sales or get paid late because invoicing feels like desktop corporate work.
-* **The Experience:**
-  - Create an invoice in under 60 seconds directly from their phone.
-  - Multi-rail payment options:
-    - Direct payment deep links and QR codes: **Venmo (@handle)**, **Cash App ($cashtag)**, **Zelle (phone/email)**, and optional **Stripe Payment Link**.
-  - Professional PDF generator with custom branding/logo.
-  - Auto-generated shareable web link (client can open in mobile browser and click to pay).
-  - Status tracking: *Draft* → *Sent* → *Viewed* → *Paid*.
-
-### Feature 3: Student-Friendly P&L & Runway Forecasts
-* **The Problem:** Terms like "EBITDA", "Double-entry debits/credits", and "Accounts Payable" intimidate non-business majors.
-* **The Experience:**
-  - **Plain English P&L:**
-    - Money In (Revenue)
-    - Money Out (Direct Costs & Subscriptions)
-    - Net Hustle Profit ("What you actually took home")
-  - **Survival Runway Calculator:**
-    - "At your current spend rate, your hustle can survive **X months** without new sales."
-    - Break-even indicator for projects with upfront investments (e.g. bought a $1,200 camera, how many shoots until break-even?).
-
-### Feature 4: Pitch & Campus Grant Financial Exporter
-* **The Problem:** University pitch competitions, campus incubators, and micro-grants ($500 - $10,000) demand clean financial exhibits, but students don't know how to format them.
-* **The Experience:**
-  - One-click export to:
-    - Clean **PDF One-Pager** (Executive Summary + Monthly Cash Flow chart + Unit Economics).
-    - Formatted **Excel/CSV** sheet tailored to common student grant application rubrics.
-  - Highlights essential traction metrics:
-    - Month-over-Month (MoM) Growth Rate.
-    - Gross Margin percentage.
-    - Customer count / Average Order Value (AOV).
+3. **📦 Inventory Tab (What You Have — TOGGLABLE):**
+   - Simple list: Item Name, Quantity in Stock, Cost Price, Selling Price.
+   - **Togglable in Settings:** If the user is a service freelancer (graphic designer, tutor, photographer, developer), they can toggle Inventory **OFF**. The 3rd tab disappears, leaving an even simpler 2-tab app (Expenses & Sales).
+   - If they sell physical goods (thrift clothes, baked goods, gadgets, campus merch), they toggle it **ON**.
 
 ---
 
-## 4. Platform & Distribution Strategy
+## 3. The Signature Feature: Native Android "Share to BOOKR" Flow
 
-* **Target:** Android Google Play Store (as hybrid mobile app) + expandable to iOS / Web.
-* **App Shell Architecture:**
-  - Built as a cross-platform hybrid application suitable for Google Play deployment (via Android App Bundle `.aab`).
-  - Offline-first capability: Local data cache ensures students can invoice clients and log expenses even in campus basements or spotty Wi-Fi.
+Student entrepreneurs in Nigeria almost exclusively receive and send money via **OPay, PalmPay, Moniepoint, Kuda, or bank transfers**. After every transaction, the banking app generates a digital receipt image.
+
+### The 3-Step "Share to BOOKR" Journey:
+```mermaid
+flowchart LR
+    A["OPay / PalmPay Receipt"] -->|"Tap Native 'Share'"| B["Select BOOKR"]
+    B --> C["BOOKR Opens Bottom Sheet"]
+    C -->|"Auto-Parsed via On-Device OCR + Regex"| D["Pre-filled Sale or Expense Form"]
+    D -->|"1-Tap Confirm"| E["Committed to Ledger"]
+```
+
+1. **Step 1: Share from Bank App**
+   - Inside OPay / PalmPay / Bank App, the student generates their receipt image and taps the Android **Share** button.
+   - They tap the **BOOKR** app icon in the Android share sheet.
+2. **Step 2: BOOKR Smart Ingest**
+   - BOOKR opens a lightweight bottom sheet asking:
+     - 🟢 *Record as New Sale (Money In)*
+     - 🔴 *Record as New Expense (Money Out)*
+     - 📎 *Attach to Existing Pending Transaction*
+3. **Step 3: Auto-Filled Form**
+   - The on-device parser extracts the details and pre-fills the fields. The student reviews and taps **"Save"** in 2 seconds.
 
 ---
 
-## 5. Key Open Discussion Points
+## 4. Local Receipt Parser (On-Device OCR + Regex Classifier)
 
-1. **Transaction Entry Method for MVP:**
-   - Should MVP start with ultra-fast **Manual + Receipt Photo Snap** (100% free, zero banking API costs, privacy-friendly)?
-   - Or do we plan for open banking / Plaid integration later?
-2. **Multi-Hustle Support:**
-   - Do we allow a student to manage multiple side projects under one account (e.g., "Photography" and "Tutoring")?
-3. **Monetization & Free Tier for Students:**
-   - How should MyBookr be positioned? (e.g., Free for up to 5 invoices/month, campus ambassador model, or freemium)?
-4. **Visual Style & Tone:**
-   - Gen-Z / collegiate aesthetic (clean, energetic, gamified like Duolingo/Bereal) vs. minimalist fintech (like Robinhood/Mercury).
+> [!IMPORTANT]
+> **Zero Cloud LLMs. Zero API Costs. 100% Offline & Private.**
+> We do NOT use expensive, slow, internet-dependent LLMs to parse receipts. Everything runs directly on the device using local OCR + deterministic Regex patterns.
+
+### How It Works:
+1. **Local OCR Engine:** Uses on-device OCR (e.g. Google ML Kit Text Recognition on Android or Tesseract). Runs in milliseconds, works with no internet connection.
+2. **Regex Receipt Classifier:** A rules-based parser specifically calibrated to Nigerian payment receipts (OPay, PalmPay, Moniepoint, Kuda, GTB, Zenith):
+   - **Amount:** Extracts `₦`, `NGN`, or currency numbers followed by decimals (e.g. `/(?:₦|NGN)\s*([0-9,]+(?:\.[0-9]{2})?)/i`).
+   - **Date & Time:** Extracts standard timestamp formats (e.g. `DD/MM/YYYY`, `YYYY-MM-DD`, `HH:MM`).
+   - **Counterparty:** Extracts lines following *"Beneficiary:"*, *"Recipient:"*, *"Paid To:"*, or *"Sender:"*.
+   - **Transaction Reference / Session ID:** Captures the unique reference code (useful for reconciling customer disputes).
+3. **Fall-through Graceful Degradation:** If a receipt has unusual formatting, the app pre-fills whatever it detected with high confidence and leaves the rest for quick manual input, with the receipt thumbnail attached.
+
+---
+
+## 5. Settings & Customization
+
+- **Inventory Toggle:** Turn the Inventory tab ON or OFF depending on business type (physical goods vs. services/freelancing).
+- **Customizable Labels:** Customize category names (e.g., "Fabrics", "Camera Gear", "Hosting", "Delivery Fee").
+- **Currency Selection:** Defaults to NGN (`₦`), but customizable for USD (`$`), GBP (`£`), etc.
+- **Biometric Lock (Optional):** Quick fingerprint / PIN lock so personal finances stay private.
+- **Export Data:** 1-tap backup to CSV / Excel or clean PDF summary for campus pitch competitions and grants.
+
+---
+
+## 6. Target Technical Architecture (Play Store Ready)
+
+- **Framework:** React Native + Expo (compiles natively to Android APK / AAB for Google Play Store).
+- **Local Storage:** SQLite (via `expo-sqlite` or WatermelonDB) for blazing fast, 100% offline-first database.
+- **Receipt Share Handler:** `expo-sharing` / Android Send Intent module to register BOOKR as a photo/receipt target in the Android OS share sheet.
+- **On-Device OCR:** Google ML Kit Text Recognition (via React Native native module) — runs fully on-device, fast, free.
