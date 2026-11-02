@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-manrope: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Theme Tokens: Dark Green & Lemonade Light Mode */
+    --color-forest: #0f382c;
+    --color-forest-dark: #0a261e;
+    --color-forest-light: #164839;
+    
+    --color-lemonade: #e4f576;
+    --color-lemonade-bright: #ebfb73;
+    
+    --color-canvas: #FAF9F6;
+    --color-card: #FFFFFF;
+    --color-text-main: #18241f;
+    --color-text-muted: #5e6b64;
+  }
+
+  /* Universal Manrope typography */
+  *, html, body, button, input, select, textarea, h1, h2, h3, h4, h5, h6, span, p, a, div {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-text-main);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Apple fluid slide-up spring animation */
+@keyframes appleSheetUp {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.97);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.002);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-liquid-spring {
+  animation: appleSheetUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
